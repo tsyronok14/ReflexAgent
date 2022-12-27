@@ -94,10 +94,7 @@ class ReflexAgent(Agent):
         else:
             closestGhost = 0
 
-        # Minimize distance from pacman to food
         newFoodPositions = newFood.asList()
-        if 0 <= len(newFoodPositions) < 3:
-            score += 0
         foodDistances = [manhattanDistance(newPos, foodPosition) for foodPosition in newFoodPositions]
 
         if len(foodDistances) == 0:
@@ -105,7 +102,6 @@ class ReflexAgent(Agent):
 
         closestFood = min(foodDistances)
 
-        # Stop action would reduce score because of the pacman's timer constraint
         if action == 'Stop':
             score -= 50
 
